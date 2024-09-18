@@ -93,7 +93,7 @@ const Create = () => {
   return (
     <div style={{ marginBottom: 10 }}>
       <div className="text-right">
-        <button className="bg-[#0560FD] text-[#fff] py-[12px] px-[22px] w-[170px] h-[48px]	rounded-[10px] text-[16px] font-medium" onClick={() => setOpen(true)}>
+        <button className="bg-[#0560FD] text-[#fff] py-[12px] px-[22px] w-[12rem] h-[48px]	rounded-[10px] text-[16px] font-medium" onClick={() => setOpen(true)}>
           Create new user
         </button>
       </div>
@@ -128,7 +128,7 @@ const Create = () => {
                     <div className="flex justify-between flex-wrap">
                       <div className="w-full md:w-[48%] mt-2">
                         <div className="text-[14px] text-[#212325] font-medium	">Name</div>
-                        <input className="projectsInput text-[14px] font-normal text-[#212325] rounded-[10px]" name="username" value={values.username} onChange={handleChange} />
+                        <input className="projectsInput text-[14px] font-normal text-[#212325] rounded-[10px]" name="name" value={values.name} onChange={handleChange} />
                       </div>
                       <div className="w-full md:w-[48%] mt-2">
                         <div className="text-[14px] text-[#212325] font-medium	">Email</div>
@@ -139,7 +139,13 @@ const Create = () => {
                       {/* Password */}
                       <div className="w-full md:w-[48%] mt-2">
                         <div className="text-[14px] text-[#212325] font-medium	">Password</div>
-                        <input className="projectsInput text-[14px] font-normal text-[#212325] rounded-[10px]" name="password" value={values.password} onChange={handleChange} />
+                        <input
+                          className="projectsInput text-[14px] font-normal text-[#212325] rounded-[10px]"
+                          name="password"
+                          type="password"
+                          value={values.password}
+                          onChange={handleChange}
+                        />
                       </div>
                     </div>
                   </div>
