@@ -28,6 +28,10 @@ const ProjectList = () => {
 
   if (!projects || !activeProjects) return <Loader />;
 
+  const handleAddProject = (project) => {
+    setProjects([...projects, project]); // Update parent state with data from the child
+  };
+
   const handleSearch = (searchedValue) => {
     const p = (projects || []).filter((p) => p.status === "active").filter((e) => e.name.toLowerCase().includes(searchedValue.toLowerCase()));
     setActiveProjects(p);
@@ -35,7 +39,7 @@ const ProjectList = () => {
 
   return (
     <div className="w-full p-2 md:!px-8">
-      <Create onChangeSearch={handleSearch} />
+      <Create onChangeSearch={handleSearch} projects={projects} onProjectAdded={handleAddProject} />
       <div className="py-3">
         {activeProjects.map((hit) => {
           return (
@@ -92,7 +96,7 @@ const Budget = ({ project }) => {
   return <ProgressBar percentage={width} max={budget_max_monthly} value={total} />;
 };
 
-const Create = ({ onChangeSearch }) => {
+const Create = ({ onChangeSearch, onProjectAdded }) => {
   const [open, setOpen] = useState(false);
 
   return (
@@ -144,7 +148,9 @@ const Create = ({ onChangeSearch }) => {
                   values.status = "active";
                   const res = await api.post("/project", values);
                   if (!res.ok) throw res;
+                  const { data: project } = res;
                   toast.success("Created!");
+                  onProjectAdded(project);
                   setOpen(false);
                 } catch (e) {
                   console.log(e);
