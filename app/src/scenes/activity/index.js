@@ -5,8 +5,8 @@ import { useSelector } from "react-redux";
 import Loader from "../../components/loader";
 import api from "../../services/api";
 
-import SelectProject from "../../components/selectProject";
-import SelectMonth from "./../../components/selectMonth";
+import { SelectProject } from "../../components/selectProject";
+import { SelectMonth } from "../../components/selectMonth";
 
 import { getDaysInMonth } from "./utils";
 

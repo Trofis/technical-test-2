@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
-
-export default ({ value = "", onChange, start = 0, name = "date", indexDefaultValue, showArrows = false, placeholder = "All Time", disabled = false }) => {
+export const SelectMonth = ({ value = "", onChange, start = 0, name = "date", indexDefaultValue, showArrows = false, placeholder = "All Time", disabled = false }) => {
   const [months, setMonths] = useState([]);
 
   const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
