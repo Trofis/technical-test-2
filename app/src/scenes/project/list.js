@@ -17,7 +17,7 @@ const ProjectList = () => {
   useEffect(() => {
     (async () => {
       const { data: u } = await api.get("/project");
-      setProjects(u);
+      setProjects([u]);
     })();
   }, []);
 
